@@ -2,6 +2,7 @@ import os
 import sys
 import json
 import logging
+import logging.config
 from pathlib import Path
 from contextlib import asynccontextmanager
 from typing import AsyncGenerator
