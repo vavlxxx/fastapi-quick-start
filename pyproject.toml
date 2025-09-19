@@ -17,6 +17,7 @@ dependencies = [
     "alembic-postgresql-enum (>=1.8.0,<2.0.0)",
     "pydantic[all] (>=2.11.9,<3.0.0)",
     "orjson (>=3.11.3,<4.0.0)",
+    "gunicorn (>=23.0.0,<24.0.0)",
 ]
 
 [tool.poetry]

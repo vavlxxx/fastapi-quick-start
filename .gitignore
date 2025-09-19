@@ -221,3 +221,4 @@ creds/
 logs/
 .env.test
 .env.docker
+.env.postgres
