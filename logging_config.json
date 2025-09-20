@@ -26,11 +26,6 @@
             "level": "INFO",
             "propagate": false
         },
-        "fastapi": {
-            "handlers": ["stdout","main_file"],
-            "level": "INFO",
-            "propagate": false
-        },
         "uvicorn": {
             "handlers": ["stdout","main_file"],
             "level": "INFO",
@@ -45,6 +40,21 @@
             "handlers": ["stdout","main_file"],
             "level": "INFO",
             "propagate": false
+        },
+        "gunicorn": {
+            "handlers": ["stdout","main_file"],
+            "level": "INFO",
+            "propagate": false
+        },
+        "gunicorn.error": {
+            "handlers": ["stdout","main_file"],
+            "level": "INFO",
+            "propagate": false
+        },
+        "gunicorn.access": {
+            "handlers": ["stdout","main_file"],
+            "level": "INFO",
+            "propagate": false
         }
     },
     "formatters": {
@@ -56,5 +66,9 @@
             "format": "%(asctime)s :: %(levelname)8s :: %(name)35s :: %(funcName)20s :: %(module)10s:%(lineno)3d :: %(message)s",
             "datefmt": "%Y-%m-%d %H:%M:%S"
         }
+    },
+    "root": {
+        "level": "INFO",
+        "handlers": ["stdout", "main_file"]
     }
 }

@@ -6,9 +6,8 @@ from src.db import sessionmaker_null_pool, engine_null_pool
 from src.api.v1.dependencies.db import get_db_with_null_pool
 from src.config import settings
 from src.utils.db_manager import DBManager
-from src.models import *
+from src.models import *  # noqa: F403
 from src.models.base import Base
-from utils.db_manager import DBManager
 
 
 @pytest.fixture()

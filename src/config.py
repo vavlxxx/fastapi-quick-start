@@ -37,6 +37,14 @@ class Settings(BaseSettings):
     UVICORN_HOST: str = "127.0.0.1"
     UVICORN_RELOAD: bool = True
 
+    GUNICORN_PORT: int = 8888
+    GUNICORN_HOST: str = "0.0.0.0"
+    GUNICORN_WORKERS: int = 1
+    GUNICORN_TIMEOUT: int = 900
+    GUNICORN_WORKERS_CLASS: str = "uvicorn.workers.UvicornWorker"
+    GUNICORN_ERROR_LOG: str | None = "-"
+    GUNICORN_ACCESS_LOG: str | None = "-"
+
     model_config = SettingsConfigDict(
         env_file=(
             BASE_DIR / ".env.template",

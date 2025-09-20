@@ -12,7 +12,9 @@ services:
       - "app_net"
     depends_on:
       - postgres
-    command: "poetry run gunicorn src.main:app --workers 4 --worker-class uvicorn.workers.UvicornWorker --bind 0.0.0.0:8888"
+    command: "poetry run python ./src/gunicorn/run.py"
+    volumes:
+      - ./logs:/app/logs
 
   postgres:
     container_name: quick_postgres_db
