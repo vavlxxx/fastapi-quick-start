@@ -37,6 +37,7 @@ def get_app_options(
     workers: int,
     timeout: int,
     workers_class: str,
+    reload: bool,
 ):
     return {
         "bind": f"{host}:{port}",
@@ -45,5 +46,6 @@ def get_app_options(
         "workers": workers,
         "worker_class": workers_class,
         "timeout": timeout,
+        "reload": reload,
         "logconfig_dict": get_logging_config(),
     }

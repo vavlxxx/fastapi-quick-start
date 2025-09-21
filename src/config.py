@@ -39,6 +39,7 @@ class Settings(BaseSettings):
     UVICORN_RELOAD: bool = True
 
     GUNICORN_PORT: int = 8888
+    GUNICORN_RELOAD: bool = False
     GUNICORN_HOST: str = "0.0.0.0"
     GUNICORN_WORKERS: int = 1
     GUNICORN_TIMEOUT: int = 900

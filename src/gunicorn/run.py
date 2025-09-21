@@ -20,6 +20,7 @@ def main():
             workers_class=settings.GUNICORN_WORKERS_CLASS,
             access_log=settings.GUNICORN_ACCESS_LOG,
             error_log=settings.GUNICORN_ERROR_LOG,
+            reload=settings.GUNICORN_RELOAD,
         ),
     ).run()
 
