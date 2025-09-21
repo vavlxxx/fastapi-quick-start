@@ -10,6 +10,15 @@ class ApplicationError(Exception):
         super().__init__(self.detail)
 
 
+class MissingTablesError(ApplicationError):
+    detail = "Missing tables"
+
+    def __init__(self, detail: set | None = None):
+        if detail is not None and isinstance(detail, set):
+            self.detail = f"{self.detail}: %s" % ", ".join(map(repr, detail))
+        super().__init__(self.detail)
+
+
 class ObjectNotFoundError(ApplicationError):
     detail = "Object not found"
 

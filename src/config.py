@@ -13,6 +13,7 @@ class Settings(BaseSettings):
     DB_HOST: str
     DB_USER: str
     DB_NAME: str
+    TEST_DB_NAME: str = "shop"
     DB_PORT: int
     DB_PASSWORD: str
 

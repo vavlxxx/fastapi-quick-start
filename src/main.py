@@ -3,18 +3,17 @@ from pathlib import Path
 from contextlib import asynccontextmanager
 from typing import AsyncGenerator
 
-
 sys.path.append(str(Path(__file__).parent.parent))
 
 import uvicorn
 from fastapi import FastAPI
 from fastapi.responses import ORJSONResponse
 
-from src.db import sessionmaker
+from src.db import engine
 from src.api import router as main_router
 from src.utils.logging import configurate_logging, get_logger
 from src.api.docs import router as docs_router
-from src.utils.db_manager import DBManager
+from src.utils.db_tools import DBHealthChecker
 from src.config import settings
 
 
@@ -23,9 +22,7 @@ async def lifespan(app: FastAPI) -> AsyncGenerator[None, None]:
     configurate_logging()
     logger = get_logger("src")
 
-    async with DBManager(sessionmaker) as db:
-        await db.check_connection()
-        logger.info("Successfully connected to DB")
+    await DBHealthChecker(engine=engine).check()
 
     logger.info("All checks passed!")
     yield
